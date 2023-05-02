@@ -1,0 +1,62 @@
+@mixin display-flex($direction: row, $wrap: nowrap, $justify: normal, $alignI: normal) {
+	display: flex;
+    flex-flow: $wrap $direction;
+	justify-content: $justify;
+    align-items: $alignI;
+} 
+
+@mixin circle-shape($size) {
+    height: $size;
+    width: $size;
+    border-radius: 50%;
+} 
+
+@mixin form-btn() {
+    padding: 0 12px;
+    font:400 2rem Mukta, sans-serif;
+    border-radius: 5px;
+	border: 1px solid rgb(55 55 55);
+	
+	&:disabled,
+	&[disabled]{
+		opacity: .5;
+		cursor: default;
+	}	    
+} 
+
+@mixin form-btn-black() {
+    background-color: rgb(55 55 55);
+    color: #fff;
+    transition: background-color .4s ease;
+
+    &:hover, &:focus{
+    	background-color: darken(rgb(55 55 55), 15%);
+    }
+
+   	&:disabled,
+	&[disabled]{
+		&:hover, &:focus{
+	   		background-color: rgb(55 55 55);
+		}
+	}
+} 
+
+@mixin form-btn-transparent() {
+	background-color: transparent;
+	color:rgb(55 55 55);
+	opacity: .8;
+	border:1px solid #969696;
+    transition: opacity .4s ease;
+
+	&:hover, &:focus{
+		opacity: 1;
+	}
+
+	&:disabled,
+	&[disabled]{
+		&:hover, &:focus{
+			opacity: .8;
+		}
+	}
+} 
+

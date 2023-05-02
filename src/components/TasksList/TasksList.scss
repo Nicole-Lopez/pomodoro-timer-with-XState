@@ -1,0 +1,113 @@
+@use '../../globalStyles/mixins';
+
+.tasks-list{
+	margin: auto;
+	width: clamp(280px, 75vw, 750px);
+
+	li{
+		list-style: none;
+	}
+
+	ul{
+		padding: 0;
+	}
+
+	&__menu{
+		position:relative;
+
+		&--open{
+			ul{
+				transform: scaleY(1);
+			}
+		}
+
+		&--close{
+			ul{
+				transform: scaleY(0);
+			}
+		}
+		
+		ul{
+			position: absolute;
+			right: 0;
+			top: 115%;
+			z-index: 1;
+			border-radius: 8px;
+			transform-origin: top;
+			background-color: #eee;
+			transition: transform .25s cubic-bezier(.47, 0, .75, .72);
+			box-shadow: rgb(0 0 0 / 15%) 0 10px 20px, rgb(0 0 0 / 10%) 0 3px 6px;
+		}
+
+		&>button {
+			@include mixins.circle-shape(35px);
+			
+		    display: flex;
+	    	align-items: center;
+	    	justify-content: center;
+			color: #565e6a;
+			background-color: rgb(255 255 255 / 60%);
+		}			
+
+		li button{
+			display: flex;
+			justify-content: flex-start;
+    		align-items: center;			
+    		gap:10px;
+    		width: 100%;
+			padding: 10px 15px;
+    		background-color: transparent;
+			color: #565e6a;			
+			font: 400 1.7rem system-ui;
+    		white-space: nowrap;
+   			transition-property: background-color, color;
+   			transition-duration: .25s;
+
+    		&:hover{
+    			color:#FFF;
+  				background-color: #646cff;
+    		}
+		}
+	}
+
+	&__header{
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+		padding-bottom: 7px;
+		border-bottom: 2px solid #dbdbdb;
+
+		h3 {
+			color: #F4F4F4;
+			font: 900 4rem monospace;
+
+			span{
+				font: 500 2.7rem monospace;
+				margin: 0 10px;
+			}	
+		}
+	}
+
+	&__new-task{
+		button{
+		    display: flex;
+	    	align-items: center;
+	    	justify-content: center;
+	    	margin: 12px 0 0;
+		    background-color: #ffffffc4;
+		    padding: 9px 15px;
+		    color: #6e83a9;
+		    font: 500 1.8rem  system-ui;
+		    border-radius: 20px;		
+		    transition-property: pointer-events, opacity;
+		    transition-duration: .6s;	
+		}
+	}
+
+	&__not-tasks{
+		color:rgb(255 255 255 / 95%);;
+		font: 900 2.3rem system-ui;		
+		text-align: center;
+		padding: 20px 0;
+	}
+}

@@ -1,0 +1,63 @@
+@use '../../globalStyles/mixins';
+@use '../../globalStyles/variables';
+
+.tasks-reminder{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	background-color: variables.$white-bg;
+	width: clamp(280px, 55vw, 450px);
+    height: 85vh;
+    padding: clamp(10px, 2vw, 30px);
+    border-radius: 8px;
+
+    h2, h3{
+    	font-weight: 900;
+    	font-family: Mukta, sans-serif;
+		text-align: center;
+    	padding: 5px 0;
+		line-height: 1.2;    
+	}
+
+    h2{
+    	font-size: 2.8rem;
+    }
+
+    h3{
+    	font-size: 1.8rem;
+    }
+
+    &__tasks-container{
+    	flex-grow: 1;
+	    overflow: auto;
+	    padding: 2%;
+	    background-color: #b7c4d0;
+    }
+
+
+    &__buttons{
+    	display: flex;
+	    align-items: stretch;
+	    justify-content: flex-end; 
+	    gap: 15px;
+
+    	button{
+			@include mixins.form-btn;	
+
+			margin-top: 15px;
+    	}
+    }
+
+
+	&__stop-alarm{
+		@include mixins.form-btn-transparent;	
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	
+	&__submit{
+		@include mixins.form-btn-black;			    
+	}   
+}

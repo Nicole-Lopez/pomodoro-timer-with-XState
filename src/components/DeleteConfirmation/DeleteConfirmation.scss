@@ -1,0 +1,40 @@
+@use '../../globalStyles/variables';
+@use '../../globalStyles/mixins';
+
+.delete-confirmation{
+	padding: 15px;
+	width: clamp(250px, 55vw, 400px);
+	background-color: variables.$white-bg;
+    font-family: Mukta, sans-serif;
+    border-radius: 8px;
+    color: #373737;
+	
+	h3{
+		font-size: 2.3rem;
+		font-weight: 900;
+		border-bottom: variables.$line-gray;
+	}
+
+	p{
+		font-size: 1.8rem;
+		padding: 10px 0;
+	}
+
+	div{
+		display: flex;
+		justify-content: flex-end;
+		gap: 10px;
+	}
+
+	button{
+		@include mixins.form-btn;				
+	}
+
+	&__cancel{
+		@include mixins.form-btn-transparent;	
+	}
+	
+	&__delete{
+		@include mixins.form-btn-black;	
+	}
+}

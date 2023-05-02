@@ -1,0 +1,104 @@
+@use '../../globalStyles/variables';
+@use '../../globalStyles/mixins';
+
+.task-card-read{
+	background-color: variables.$white-bg;
+	margin: 10px 0;
+	border-radius: 7px;
+	padding: 15px;
+
+	&__top{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding-bottom: 20px;
+
+		p{
+			width: 90%;
+			font: 400 1.9rem "Fira Sans", sans-serif;
+		}
+
+		button{
+			@include mixins.circle-shape(30px);
+
+			display: flex;
+			border: 2px solid #7b8593;
+		}
+	}
+
+	&__bottom{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding-top: 10px;
+		border-top: variables.$line-gray;
+
+		p{
+			color: #7b8593;
+			font: 400 1.7rem "Fira Sans", sans-serif;
+		}		
+
+		svg{
+			color: #565e6a;		
+			transition-property: color, fill;
+			transition-duration: .25s;
+		}	
+	}
+
+	&__edit{
+		&:hover{
+			svg{
+		        color: #e2960a;
+    			fill: #e2960a;
+			}
+		}
+	}
+
+	&__delete{
+		&:hover{
+			svg{
+				color:#f00;
+				fill:#f00;
+			}
+		}
+	}
+
+	&--incompleted{
+		.task-card-read__top button {
+			svg{
+				opacity: 0;
+			}
+
+			&:hover{
+				svg{
+					opacity: .8;
+				}
+			}
+		}
+	}
+
+	&--completed{
+		background-color: darken(variables.$white-bg, 5%);
+	    box-shadow: inset 10px 0 0 0 variables.$green-true;
+
+		.task-card-read__top{
+			p{
+				opacity: .6;
+				text-decoration: line-through;
+			}
+
+
+			button {				
+			    background-color: variables.$green-true;
+			    color: #FFF;
+			    border-color: variables.$green-true;
+
+
+				svg{
+					opacity: 1;
+					stroke-width: 6;
+				}
+			}
+		} 
+	}
+}

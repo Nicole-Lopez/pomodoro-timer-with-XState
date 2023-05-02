@@ -1,0 +1,58 @@
+@use '../../globalStyles/variables';
+
+.input-number-with-buttons{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;  
+
+	label{
+		color: variables.$label-color;
+		font: 700 1.8rem Mukta, sans-serif;
+	}
+
+	input{
+		width: 100%;
+		border: none;
+		outline: none;
+		background-color: #e2e2e2;
+		padding: 7px 30% 7px 0;
+		text-align: center;
+		color: variables.$dark-gray;
+		font: 700 1.8rem Arial, sans-serif;			
+	}			
+
+	.input-container{
+		display: flex;
+		position: relative;
+
+		button{
+		    position: absolute;
+		    right: 0;
+		    padding: 0;
+		    height: 50%;
+		    width: 30%;
+	        display: flex;
+	        justify-content: center;
+		    background-color: variables.$light-gray;
+		    color: variables.$dark-gray;
+		    border: 1px solid rgb(223 223 223);
+
+			svg{
+				height: 100%;
+			}
+		}
+
+		&__up{
+			top:0;
+		}
+
+		&__down{
+			bottom: 0;
+		}
+	}
+}
+
+
+
+
+

@@ -1,0 +1,117 @@
+@use '../../globalStyles/mixins';
+
+.timer-shape{
+	@include mixins.circle-shape(clamp(270px, 55vw, 500px));
+
+	position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;	
+	margin: auto;
+
+    &::after{
+    	content: "";
+	    position: absolute;
+    }
+
+
+	&>div{
+		position: relative;
+		width: 90%;
+
+	    svg{
+	    	position: relative;
+	    	z-index: 2;
+	    	border-radius: 50%;
+	    }
+
+	    p{
+	    	@include mixins.circle-shape(92%);
+
+	    	position: absolute;
+	    	inset: 0;
+	    	margin: auto;
+	    	z-index: 1;
+	    	display: flex;
+		    align-items: center;
+		    justify-content: center;
+	    	font-family: monospace;
+	    	font-size: clamp(6rem, 10vw + 1rem, 10rem);
+	    }
+	}
+
+	&--work {
+		background-color: #d4e7f8;
+
+		&::after{
+		    border-radius: 0 0 20% 20%;
+		    background-color: #c0c0c0;
+		    width: 40%;
+		    height: 20%;
+		    top: 96%;	
+		}		
+
+		&>div{
+		    svg{
+				circle:nth-child(1){
+					stroke: #b2c2d1;
+				}
+
+				circle:nth-child(2){
+					stroke: #FFD966;
+				}
+		    }
+
+			p{
+				background-color: #FFF2CC;
+				color:#6b6969;
+			}
+		}
+	}
+
+	&--shortBreak, &--longBreak {
+   		background-color: #dddde4;
+
+   		&::after{
+	    	top: 10%;
+	    	left: 0;
+	    	border-radius: 18% 0 0 18%;
+			background-color: #f1f1f1;
+			width: 30%;
+			height: 15%;
+			transform: rotate(40deg);
+   		}
+
+   		&>div{
+		    svg{
+				circle:nth-child(1){
+					stroke: #b2c2d1;
+				}
+
+				circle:nth-child(2){
+					stroke: #f1f1f1;
+				}
+		    }   
+
+			p{
+		    	color:#FFF;
+		    	background-color: #4c3432;
+			}	
+		}
+	}
+}
+
+.pomodoro-controls{
+	display: flex;
+	justify-content: center;
+	margin: 100px 0 80px;
+
+	button{
+		padding: 5px 15px;
+		margin: 5px;
+		background-color: #3C486B;
+		color:#F4F4F4;
+		font: 400 3.5rem monospace;
+		border-radius: 8px;
+	}
+}
